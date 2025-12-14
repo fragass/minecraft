@@ -1,35 +1,35 @@
-// auth.js
-
+// auth.js (cliente)
 function checkAuth() {
   const loggedIn = localStorage.getItem("loggedIn");
-  const currentPage = window.location.pathname.split("/").pop();
-
-  if (!loggedIn && currentPage !== "index.html") {
-    window.location.href = "index.html";
-  }
-
-  if (loggedIn && currentPage === "index.html") {
-    window.location.href = "main.html";
-  }
+  const page = window.location.pathname.split("/").pop();
+  if (!loggedIn && page !== "index.html") window.location.href = "index.html";
+  if (loggedIn && page === "index.html") window.location.href = "main.html";
 }
 
 document.addEventListener("DOMContentLoaded", checkAuth);
 
-// Função de login
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("login-form");
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
+  if (!form) return;
 
-      // Faz requisição ao endpoint /api/login
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value;
+
+    try {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user, pass })
       });
+
+      // Se o endpoint não existir ou retornar não-JSON, evita quebrar
+      if (!res.ok) {
+        const msg = `Falha no login (${res.status}).`;
+        alert(msg);
+        return;
+      }
 
       const data = await res.json();
       if (data.success) {
@@ -38,8 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         alert("Usuário ou senha inválidos!");
       }
-    });
-  }
+    } catch (err) {
+      alert("Erro de conexão ao validar login.");
+    }
+  });
 });
 
 function logout() {
