@@ -1,4 +1,4 @@
-// auth.js (cliente)
+// auth.js
 function checkAuth() {
   const loggedIn = localStorage.getItem("loggedIn");
   const page = window.location.pathname.split("/").pop();
@@ -17,29 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const user = document.getElementById("username").value.trim();
     const pass = document.getElementById("password").value;
 
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user, pass })
-      });
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user, pass })
+    });
 
-      // Se o endpoint não existir ou retornar não-JSON, evita quebrar
-      if (!res.ok) {
-        const msg = `Falha no login (${res.status}).`;
-        alert(msg);
-        return;
-      }
-
-      const data = await res.json();
-      if (data.success) {
-        localStorage.setItem("loggedIn", "true");
-        window.location.href = "main.html";
-      } else {
-        alert("Usuário ou senha inválidos!");
-      }
-    } catch (err) {
-      alert("Erro de conexão ao validar login.");
+    const data = await res.json();
+    if (data.success) {
+      localStorage.setItem("loggedIn", "true");
+      window.location.href = "main.html";
+    } else {
+      alert("Usuário ou senha inválidos!");
     }
   });
 });
