@@ -1,0 +1,145 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#94a3b8;
+  --text:#e6eef8;
+  --accent-2:#60a5fa;
+  --radius:10px;
+  --shadow: 0 8px 20px rgba(2,6,23,0.55);
+  font-size:16px;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,#071028 0%,#071827 60%), var(--bg);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.25rem;
+}
+
+/* Centering */
+.center{ width:100%; max-width:420px; display:flex; align-items:center; justify-content:center; }
+
+/* Mini square card: make height flexible and ensure internal scrolling if needed */
+.mini-card{
+  width:220px;
+  max-height:100vh;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  box-shadow: var(--shadow);
+  border:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  align-items:stretch;
+}
+
+/* Thumbnail area reduced to leave room for footer on small screens */
+.thumb{
+  flex:0 0 140px;
+  background:linear-gradient(180deg,#0b1220,#071827);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.thumb img{ width:100%; height:100%; object-fit:cover; display:block }
+
+/* Footer with title and actions */
+.card-footer{
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:stretch;
+  justify-content:center;
+  /* allow footer to scroll if content grows */
+  max-height: calc(100vh - 160px);
+  overflow:auto;
+}
+.title{
+  font-size:0.95rem;
+  text-align:center;
+  margin:0;
+  color:var(--text);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Actions column: tutorial below play */
+.actions{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  justify-content:center;
+  align-items:stretch;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:0.9rem;
+  text-decoration:none;
+  cursor:pointer;
+  user-select:none;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  border: none;
+}
+
+.btn-play {
+  background: #ffffff;
+  color: #04202a;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  /* sem sombra aqui */
+}
+
+.btn-play:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(255,255,255,0.9); /* sombra branca só no hover */
+  color: #000000; /* opcional: muda cor do texto no hover */
+}
+
+.btn-play:focus{ outline:3px solid rgba(96,165,250,0.12); outline-offset:2px; }
+
+/* Tutorial button subtle, below play */
+.btn-tutorial{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,0.04);
+  width:100%;
+  text-align:center;
+}
+.btn-tutorial:hover{ color:var(--accent-2); border-color:rgba(96,165,250,0.18); transform: translateY(-2px); }
+
+/* If viewport is very small, reduce thumbnail and padding so buttons remain visible */
+@media (max-height:700px) and (max-width:420px){
+  body{ padding:0.75rem; }
+  .mini-card{ width:180px; }
+  .thumb{ flex:0 0 110px; }
+  .card-footer{ padding:8px; max-height: calc(100vh - 120px); }
+  .btn{ padding:7px 8px; font-size:0.85rem; }
+}
+
+/* Ensure on narrow widths the layout still fits */
+@media (max-width:420px){
+  .mini-card{ width:180px; }
+  .thumb{ flex:0 0 120px; }
+  .card-footer{ max-height: calc(100vh - 140px); }
+  .btn{ padding:7px 8px; font-size:0.85rem; }
+}

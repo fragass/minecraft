@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Passo a Passo</title>
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --text:#e6eef8;
+      --accent-2:#60a5fa;
+      --radius:10px;
+      --shadow: 0 8px 20px rgba(2,6,23,0.55);
+      font-size:16px;
+    }
+
+body{
+  font-family: Inter, system-ui, Arial;
+  background: linear-gradient(180deg,#071028 0%,#071827 60%);
+  color:#e6eef8;
+  margin:0;
+  padding:0;
+}
+
+/* Container geral */
+.tutorial-container{
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  padding:2rem;
+}
+
+/* Cada passo */
+/* Cada passo (card) */
+.tutorial-step{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  background:rgba(255,255,255,0.02);
+  border-radius:16px;   /* <<< arredonda os cantos */
+  padding:1.5rem;
+  box-shadow:0 8px 20px rgba(2,6,23,0.55);
+}
+
+/* Texto */
+.step-text{
+  flex:1;
+}
+.step-text h2{
+  margin:0 0 0.5rem;
+  font-size:1.2rem;
+}
+.step-text p{
+  margin:0;
+  color:#94a3b8;
+}
+
+/* Imagem */
+.step-image{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+.step-image img{
+  max-width:100%;
+  height:auto;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform 0.2s ease;
+}
+.step-image img:hover{
+  transform:scale(1.03);
+}
+
+/* Responsivo: em telas pequenas, empilha */
+@media(max-width:768px){
+  .tutorial-step{
+    flex-direction:column;
+    text-align:center;
+  }
+.como {
+  font-size: 1.8rem;          /* aumenta o tamanho */
+  font-weight: 800;           /* deixa bem destacado */
+  text-align: center;         /* centraliza */
+  color: #ff0000;             /* cor base */
+  background-color: #1e3a8a;  /* fundo azul escuro */   
+  padding: 0.6rem 1rem;       /* espaço interno */
+  border-radius: 12px;        /* arredonda os cantos */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* sombra */
+  text-transform: uppercase;  /* tudo em maiúsculas */
+  letter-spacing: 1px;        /* espaçamento entre letras */
+}
+
+html {
+  scroll-behavior: smooth; /* ativa animação suave */
+}
+
+}
+  </style>
+</head>
+<body>
+
+<main class="tutorial-container">
+
+<h1>❗ Como salvar o backup/save do meu mundo?</h1>
+
+  <!-- Passo 1 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      1 - Clique no mundo que você quer salvar, depois clique em <strong>Backup</strong>;
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/1.png" alt="Passo 1">
+    </div>
+  </section>
+
+  <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      2 - Clique em <strong>" EXPORT EPK FILE "</strong>;
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/2.png" alt="Passo 2">
+    </div>
+  </section>
+
+    <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      3 - O arquivo vai vir com o <strong>mesmo nome do seu mundo</strong>.
+      <p></p>
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/3.png" alt="Passo 3">
+    </div>
+  </section>
+
+ <h1>❗ Agora como faço para jogar no mundo que eu salvei?</h1>
+
+      <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      4 - Clique em <strong>" Create New World "</strong>;
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/4.png" alt="Passo 4">
+    </div>
+  </section>
+
+        <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      5 - Clique em <strong>" LOAD EPK FILE "</strong>;
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/5.png" alt="Passo 5">
+    </div>
+  </section>
+
+          <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      6 - Selecione o arquivo <strong>.EPK</strong> que você baixou no inicio;
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/6.png" alt="Passo 6">
+    </div>
+  </section>
+
+          <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      7 - Não mude nada, apenas clique em <strong>Continue;</strong>
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/7.png" alt="Passo 7">
+    </div>
+  </section>
+
+          <!-- Passo 2 -->
+  <section class="tutorial-step">
+    <div class="step-text">
+      8 - O mundo foi exportado e já pode ser jogado com <strong>tudo que você fez anteriormente.</strong>
+    </div>
+    <div class="step-image">
+      <img src="tutorialmine/8.png" alt="Passo 8">
+    </div>
+  </section>
+
+  <!-- Adicione mais passos conforme necessário -->
+</main>
+</body>
+</html>
