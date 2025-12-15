@@ -1,0 +1,81 @@
+:root {
+  --bg: #000;
+  --card: #111;
+  --text: #fff;
+  --radius: 10px;
+  --font: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+main.games-container {
+  background-color: #000;
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Card */
+.game-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Imagem clicável */
+.game-card img {
+  width: 100%;
+  height: 170px;       /* mais compacta */
+  object-fit: contain; /* mostra o "1.8" inteiro */
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+.game-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Aviso */
+.card-warning {
+  font-size: 0.85rem;
+  color: #fff;          /* aviso em branco */
+  font-weight: 500;
+}
+
+/* Botões */
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.btn-card {
+  display: inline-block;
+  background: #fff;     /* branco */
+  color: #000;          /* texto preto */
+  padding: 0.6rem 0.8rem; /* mais compacto */
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;    /* menor */
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.btn-card:hover {
+  box-shadow: 0 0 8px #fff; /* sombra branca no hover */
+  transform: translateY(-2px);
+}
