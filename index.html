@@ -53,11 +53,12 @@
       color: #fff;
       background: #222;
       transition: background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
     }
 
     .btn-card:hover {
       background: #444;
-      color: #ff4444;
+      color: #4caf50; /* verde para combinar com Minecraft */
     }
   </style>
 </head>
@@ -74,10 +75,23 @@
       </p>
 
       <div class="card-buttons">
-        <a href="#" id="btn-save" class="btn-card">Como salvo meu mundo?</a>
+        <a href="#" id="btn-save" class="btn-card">Como salvar o seu mundo</a>
         <a href="#" id="btn-online" class="btn-card">Como jogar online</a>
       </div>
     </div>
   </main>
+
+  <script>
+    // Exemplo simples de JS para os botões
+    document.getElementById("btn-save").addEventListener("click", function(e) {
+      e.preventDefault();
+      alert("Para salvar seu mundo, use o menu do jogo e clique em 'Salvar e sair'.");
+    });
+
+    document.getElementById("btn-online").addEventListener("click", function(e) {
+      e.preventDefault();
+      alert("Para jogar online, configure um servidor ou use serviços de hospedagem compatíveis.");
+    });
+  </script>
 </body>
 </html>
